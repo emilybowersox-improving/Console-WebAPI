@@ -1,0 +1,13 @@
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\ConsoleWebAPI.exe.config
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\ConsoleWebAPI.exe
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\ConsoleWebAPI.pdb
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\obj\Debug\ConsoleWebAPI.csprojAssemblyReference.cache
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\obj\Debug\ConsoleWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\obj\Debug\ConsoleWebAPI.csproj.CopyComplete
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\obj\Debug\ConsoleWebAPI.exe
+C:\Users\EmilyBowersox\source\repos\ConsoleWebAPI\ConsoleWebAPI\obj\Debug\ConsoleWebAPI.pdb
