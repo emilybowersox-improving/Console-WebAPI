@@ -38,6 +38,12 @@ namespace ConsoleWebAPI
                 client.DefaultRequestHeaders.Authorization = authHeader;
                 //everything above this point is the basic setup
 
+
+
+
+
+                //GET 
+
                 string accountUri = "accounts?$select=name";
                 string uri = accountUri;
 
@@ -63,10 +69,18 @@ namespace ConsoleWebAPI
                 Console.WriteLine("PressEnterToContinue");
                 Console.ReadLine();
 
+
+
+
+
+                // PATCH
+
                 string updateAccountUri = "accounts(6df963e8-d9bf-eb11-8236-000d3a1c43bc)";
                 using (var requestMessage = new HttpRequestMessage(new HttpMethod("PATCH"), updateAccountUri))
                 {
                     requestMessage.Headers.Authorization = authHeader;
+                    //adding this header tells it to return all of the info of the entity instance we patched (account)
+                    requestMessage.Headers.Add("Prefer", "return=representation");
 
                     var payload = @"{
                 ""description"": ""12345fax""
@@ -74,6 +88,7 @@ namespace ConsoleWebAPI
 
                     requestMessage.Content = new StringContent(payload);
                     requestMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                  
                     Console.WriteLine("Sending update (HTTP PATCH)...");
 
                     response = client.SendAsync(requestMessage).Result;
@@ -81,6 +96,11 @@ namespace ConsoleWebAPI
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine("Update Successful.");
+                        // necessary to Console.Write the "return=representation" so we can see it 
+                        string responseBody = response.Content.ReadAsStringAsync().Result;
+                        JObject body = JObject.Parse(responseBody);
+                        Console.WriteLine(body.ToString());
+                 
                     }
                     else
                     {
