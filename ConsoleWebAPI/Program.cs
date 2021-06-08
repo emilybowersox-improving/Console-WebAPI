@@ -63,7 +63,8 @@ namespace ConsoleWebAPI
                 }
                 else
                 {
-                    Console.WriteLine("The request failed with a status of ", response.ReasonPhrase);
+                    // the {0} grabs the first index of the array of things coming after- in this case there's only one thing: response.ReasonPhrase. 
+                    Console.WriteLine("The request failed with a status of {0}", response.ReasonPhrase);
                 }
                 // these two lines create a break to pause the console, so you can decide when to let it close out
                 Console.WriteLine("PressEnterToContinue");
@@ -104,7 +105,7 @@ namespace ConsoleWebAPI
                     }
                     else
                     {
-                        Console.WriteLine("The request failed with a status of ", response.ReasonPhrase);
+                        Console.WriteLine("The request failed with a status of {0}", response.ReasonPhrase);
                     }
                     Console.WriteLine("PressEnterToContinue");
                     Console.ReadLine();
