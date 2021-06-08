@@ -69,7 +69,7 @@ namespace ConsoleWebAPI
                     requestMessage.Headers.Authorization = authHeader;
 
                     var payload = @"{
-                ""fax"": ""12345fax""
+                ""description"": ""12345fax""
                 } ";
 
                     requestMessage.Content = new StringContent(payload);
