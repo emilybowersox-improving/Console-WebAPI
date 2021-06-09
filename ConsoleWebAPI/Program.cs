@@ -8,6 +8,13 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
+
+/*// Next Challenge:
+Modify your code so that, instead of hardcoding the GUID to update, you parse the return from the GET to pick out the GUID​
+Hint: use the Newtonsoft Json library to parse the return and use methods on the JSON object​
+Hint: modify your GET query to narrow your result set to only the record you want​*/
+
+
 namespace ConsoleWebAPI
 {
     class Program
