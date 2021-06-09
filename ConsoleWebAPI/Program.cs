@@ -51,6 +51,8 @@ namespace ConsoleWebAPI
 
                 var response = client.GetAsync(uri).Result;
 
+                Console.WriteLine(response);
+
                 if(response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("Request was successful.");
@@ -59,7 +61,6 @@ namespace ConsoleWebAPI
                     string responseBody = response.Content.ReadAsStringAsync().Result;
                     JObject body = JObject.Parse(responseBody);
                     Console.WriteLine(body.ToString());
-                  /*  Console.WriteLine(responseBody);*/
                 }
                 else
                 {
@@ -80,16 +81,16 @@ namespace ConsoleWebAPI
                 using (var requestMessage = new HttpRequestMessage(new HttpMethod("PATCH"), updateAccountUri))
                 {
                     requestMessage.Headers.Authorization = authHeader;
-                    //adding this header tells it to return all of the info of the entity instance we patched (account)
+                    //adding this header tells it to return all of the info of the entity instance we patched 
                     requestMessage.Headers.Add("Prefer", "return=representation");
 
                     var payload = @"{
-                ""description"": ""12345fax""
-                } ";
+                                ""description"": ""12345fax""
+                                } ";
 
                     requestMessage.Content = new StringContent(payload);
                     requestMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                  
+
                     Console.WriteLine("Sending update (HTTP PATCH)...");
 
                     response = client.SendAsync(requestMessage).Result;
@@ -101,7 +102,6 @@ namespace ConsoleWebAPI
                         string responseBody = response.Content.ReadAsStringAsync().Result;
                         JObject body = JObject.Parse(responseBody);
                         Console.WriteLine(body.ToString());
-                 
                     }
                     else
                     {
@@ -109,8 +109,83 @@ namespace ConsoleWebAPI
                     }
                     Console.WriteLine("PressEnterToContinue");
                     Console.ReadLine();
-                }       
+                }
+
+
+
+
+
+                // POST (CREATE)
+
+                string postToAccountUri = "accounts";
+                using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), postToAccountUri))
+                {
+                    requestMessage.Headers.Authorization = authHeader;
+
+                    var payload = @"{
+
+                ""name"": ""Brand New Account"",
+                ""description"": ""Cool new account""
+
+                } ";
+
+                    requestMessage.Content = new StringContent(payload);
+                    requestMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    Console.WriteLine("Creating new account (HTTP POST)...");
+
+                    response = client.SendAsync(requestMessage).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Update Successful.");
+
+                    }
+                    else
+                    {
+                        //console.writing to get a more helpful error message
+                        Console.WriteLine(payload);
+
+                        string responseBody = response.Content.ReadAsStringAsync().Result;
+                        JObject body = JObject.Parse(responseBody);
+                        Console.WriteLine(body.ToString());
+
+                        Console.WriteLine("The request failed with a status of {0}", response.ReasonPhrase);
+                    }
+                    Console.WriteLine("PressEnterToContinue");
+                    Console.ReadLine();
+                }
+
+
+
                 
+
+                // DELETE
+
+                string deleteAccountUri = "accounts(036c3f4b-1be7-e611-8101-e0071b6af231)";
+                using (var requestMessage = new HttpRequestMessage(new HttpMethod("DELETE"), deleteAccountUri))
+                {
+                    requestMessage.Headers.Authorization = authHeader;
+
+                    Console.WriteLine("Deleting account (HTTP DELETE)...");
+
+                    response = client.SendAsync(requestMessage).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Delete Successful.");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("The request failed with a status of {0}", response.ReasonPhrase);
+                    }
+                    Console.WriteLine("PressEnterToContinue");
+                    Console.ReadLine();
+                }
+
+
+
 
 
             }
